@@ -46,10 +46,9 @@ export class AmqpPubSub implements PubSubEngine {
     this.currentSubscriptionId = 0;
   }
 
-  public publish(trigger: string, payload: any): boolean {
+  public async publish(trigger: string, payload: any) {
     this.logger.trace("publishing for queue '%s' (%j)", trigger, payload);
     this.producer.publish(trigger, payload);
-    return true;
   }
 
   public subscribe(trigger: string, onMessage: Function, options?: Object): Promise<number> {
@@ -108,7 +107,7 @@ export class AmqpPubSub implements PubSubEngine {
   }
 
   public asyncIterator<T>(triggers: string | string[]): AsyncIterator<T> {
-    return new PubSubAsyncIterator<T>(this, triggers);
+    return new PubSubAsyncIterator<T>((this as any) as PubSubEngine, triggers);
   }
 
   private onMessage(channel: string, message: string) {

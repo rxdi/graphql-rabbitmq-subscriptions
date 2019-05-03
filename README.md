@@ -1,4 +1,5 @@
-# graphql-rabbitmq-subscriptions
+# @rxdi/graphql-rabbitmq-subscriptions
+Forked from [graphql-rabbitmq-subscriptions](https://github.com/cdmbase/graphql-rabbitmq-subscriptions)
 
 This package implements the PusSubEngine Interface from the graphql-subscriptions package. 
 It allows you to connect your subscriptions manger to a rabbitmq Pub Sub mechanism to support 
