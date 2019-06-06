@@ -31,7 +31,6 @@ import { PubSubEngine } from 'graphql-subscriptions/dist/pubsub-engine';
  * The PubSubEngine whose events will be observed.
  */
 export class PubSubAsyncIterator<T> implements AsyncIterator<T> {
-
   private pullQueue: Function[];
   private pushQueue: any[];
   private eventsArray: string[];
@@ -44,7 +43,8 @@ export class PubSubAsyncIterator<T> implements AsyncIterator<T> {
     this.pullQueue = [];
     this.pushQueue = [];
     this.listening = true;
-    this.eventsArray = typeof eventNames === 'string' ? [eventNames] : eventNames;
+    this.eventsArray =
+      typeof eventNames === 'string' ? [eventNames] : eventNames;
     this.allSubscribed = this.subscribeAll();
   }
 
@@ -90,16 +90,20 @@ export class PubSubAsyncIterator<T> implements AsyncIterator<T> {
     if (this.listening) {
       this.listening = false;
       this.unsubscribeAll(subscriptionIds);
-      this.pullQueue.forEach(resolve => resolve({ value: undefined, done: true }));
+      this.pullQueue.forEach(resolve =>
+        resolve({ value: undefined, done: true }),
+      );
       this.pullQueue.length = 0;
       this.pushQueue.length = 0;
     }
   }
 
   private subscribeAll() {
-    return Promise.all(this.eventsArray.map(
-      eventName => this.pubsub.subscribe(eventName, this.pushValue.bind(this), {}),
-    ));
+    return Promise.all(
+      this.eventsArray.map(eventName =>
+        this.pubsub.subscribe(eventName, this.pushValue.bind(this), {}),
+      ),
+    );
   }
 
   private unsubscribeAll(subscriptionIds: number[]) {
@@ -107,5 +111,4 @@ export class PubSubAsyncIterator<T> implements AsyncIterator<T> {
       this.pubsub.unsubscribe(subscriptionId);
     }
   }
-
 }
