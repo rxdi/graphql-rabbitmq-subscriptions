@@ -1,6 +1,6 @@
 {
   "name": "@rxdi/graphql-rabbitmq-subscriptions",
-  "version": "0.7.38",
+  "version": "0.7.39",
   "description": "A graphql-subscriptions PubSub Engine using RabbitMQ",
   "main": "dist/index.js",
   "repository": {
@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/rxdi/graphql-rabbitmq-subscriptions",
   "scripts": {
-    "test":"echo Test rabbitmq subscriptions",
+    "test": "echo Test rabbitmq subscriptions",
     "posttest": "npm run lint",
     "lint": "tslint ./src/**/*.ts"
   },
