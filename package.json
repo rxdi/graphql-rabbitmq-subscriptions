@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/rxdi/graphql-rabbitmq-subscriptions",
   "scripts": {
-    "test": "jest",
+    "test":"echo Test rabbitmq subscriptions",
     "posttest": "npm run lint",
     "lint": "tslint ./src/**/*.ts"
   },
@@ -50,7 +50,7 @@
     "@types/chai": "^3.4.34",
     "@types/chai-as-promised": "0.0.29",
     "@types/mocha": "^2.2.39",
-    "@types/node": "7.0.5",
+    "@types/node": "^12.0.10",
     "@types/promises-a-plus": "^0.0.27",
     "@types/simple-mock": "0.0.27",
     "@types/sinon": "^1.16.34",
@@ -59,13 +59,13 @@
     "@cdm-logger/server": "^3.0.2",
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
-    "graphql": "^0.10.5",
+    "graphql": "^14.5.8",
     "istanbul": "1.0.0-alpha.2",
     "mocha": "^3.0.0",
     "remap-istanbul": "^0.8.4",
     "simple-mock": "^0.7.0",
-    "tslint": "^4.4.2",
-    "typescript": "^2.3.4"
+    "tslint": "^5.20.1",
+    "typescript": "^3.5.3"
   },
   "typings": "dist/index.d.ts",
   "typescript": {
